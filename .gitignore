@@ -38,3 +38,4 @@ models/swav/experiments/training100k/saving_dir3/train.log
 *.pth.tar
 *.pt
 
+datasets/NLST_dataset/cached_structure.json
