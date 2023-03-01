@@ -20,6 +20,19 @@ datasets/Covidx-CT/train
 datasets/Covidx-CT/validation
 datasets/NLST_100k/class_0
 datasets/NLST_dataset/NLST_jpg
+datasets/NLST_100k/cached_classes.json
+datasets/NLST_100k/cached_structure.json
+
+models/swav/experiments/training/saving_dir1/train.log
+models/swav/experiments/training/saving_dir2/train.log
+models/swav/experiments/training/saving_dir3/train.log
+models/swav/experiments/training/saving_dir4/train.log
+models/swav/experiments/training/saving_dir5/train.log
+
+models/swav/experiments/training100k/saving_dir1/train.log
+models/swav/experiments/training100k/saving_dir2/train.log
+models/swav/experiments/training100k/saving_dir3/train.log
+
 
 *.pth
 *.pth.tar
