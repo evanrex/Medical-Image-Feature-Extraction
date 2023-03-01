@@ -1,0 +1,335 @@
+running job: 1
+[W socket.cpp:401] [c10d] The server socket has failed to bind to [::]:29500 (errno: 98 - Address already in use).
+[W socket.cpp:401] [c10d] The server socket has failed to bind to 0.0.0.0:29500 (errno: 98 - Address already in use).
+[E socket.cpp:435] [c10d] The server socket has failed to listen on any local network address.
+Traceback (most recent call last):
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torch/distributed/run.py", line 765, in <module>
+    main()
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 345, in wrapper
+    return f(*args, **kwargs)
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torch/distributed/run.py", line 761, in main
+    run(args)
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torch/distributed/run.py", line 752, in run
+    elastic_launch(
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 131, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 236, in launch_agent
+    result = agent.run()
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py", line 125, in wrapper
+    result = f(*args, **kwargs)
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py", line 709, in run
+    result = self._invoke_run(role)
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py", line 844, in _invoke_run
+    self._initialize_workers(self._worker_group)
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py", line 125, in wrapper
+    result = f(*args, **kwargs)
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py", line 678, in _initialize_workers
+    self._rendezvous(worker_group)
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py", line 125, in wrapper
+    result = f(*args, **kwargs)
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py", line 538, in _rendezvous
+    store, group_rank, group_world_size = spec.rdzv_handler.next_rendezvous()
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/static_tcp_rendezvous.py", line 55, in next_rendezvous
+    self._store = TCPStore(  # type: ignore[call-arg]
+RuntimeError: The server socket has failed to listen on any local network address. The server socket has failed to bind to [::]:29500 (errno: 98 - Address already in use). The server socket has failed to bind to 0.0.0.0:29500 (errno: 98 - Address already in use).
+| distributed init (rank 0): env://
+git:
+  sha: cb711401860da580817918b9167ed73e3eef3dcf, status: has uncommited changes, branch: main
+
+arch: vit_small
+avgpool_patchtokens: False
+batch_size_per_gpu: 128
+checkpoint_key: teacher
+data_path: /home-mscluster/erex/research_project/datasets/Covidx-CT
+dist_url: env://
+epochs: 100
+evaluate: False
+evaluate_on_test: True
+gpu: 0
+local_rank: 0
+lr: 0.001
+n_last_blocks: 4
+num_labels: 2
+num_workers: 10
+output_dir: /home-mscluster/erex/research_project/models/dino/experiments/trainingViT/saving_dir1
+patch_size: 16
+pretrained_linear_weights: /home-mscluster/erex/research_project/models/dino/experiments/trainingViT/saving_dir1/checkpoint.pth.tar
+pretrained_weights: /home-mscluster/erex/research_project/models/dino/experiments/pre-trainingViT/saving_dir1/checkpoint.pth
+rank: 0
+val_freq: 1
+world_size: 1
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home-mscluster/erex/research_project/models/dino/experiments/pre-trainingViT/saving_dir1/checkpoint.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v'])
+Model vit_small built.
+/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torchvision/transforms/transforms.py:332: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+============ Evaluating Model on Test partition ============
+* Acc@1 15.625 | loss 2.015066623687744
+* Acc@1 10.9375 | loss 2.149160623550415
+* Acc@1 0.0 | loss 3.908146619796753
+* Acc@1 25.0 | loss 1.6919153928756714
+* Acc@1 16.40625 | loss 2.286271095275879
+* Acc@1 37.5 | loss 1.5964909791946411
+* Acc@1 75.78125 | loss 0.5238427519798279
+* Acc@1 64.84375 | loss 0.6590442061424255
+* Acc@1 41.40625 | loss 1.1610571146011353
+* Acc@1 58.59375 | loss 1.0671569108963013
+* Acc@1 30.46875 | loss 1.526273488998413
+* Acc@1 42.1875 | loss 1.6879018545150757
+* Acc@1 42.1875 | loss 1.127364158630371
+* Acc@1 21.09375 | loss 1.52676522731781
+* Acc@1 28.125 | loss 1.300609827041626
+* Acc@1 63.28125 | loss 0.8554874062538147
+* Acc@1 13.28125 | loss 1.9741662740707397
+* Acc@1 32.03125 | loss 1.3459705114364624
+* Acc@1 41.40625 | loss 1.3573319911956787
+* Acc@1 59.375 | loss 0.7681747078895569
+* Acc@1 28.125 | loss 1.4397916793823242
+* Acc@1 51.5625 | loss 0.8708259463310242
+* Acc@1 39.84375 | loss 1.0332952737808228
+* Acc@1 57.03125 | loss 0.7762719392776489
+* Acc@1 64.0625 | loss 0.634909451007843
+* Acc@1 80.46875 | loss 0.43094414472579956
+* Acc@1 60.15625 | loss 0.7705773711204529
+* Acc@1 45.3125 | loss 0.9182533621788025
+* Acc@1 48.4375 | loss 0.7500302791595459
+* Acc@1 47.65625 | loss 0.9296483993530273
+* Acc@1 56.25 | loss 1.0416884422302246
+* Acc@1 49.21875 | loss 0.9945727586746216
+* Acc@1 35.9375 | loss 1.3258064985275269
+* Acc@1 36.71875 | loss 1.8162418603897095
+* Acc@1 47.65625 | loss 0.8843147158622742
+* Acc@1 27.34375 | loss 1.6707210540771484
+* Acc@1 35.15625 | loss 1.260376214981079
+* Acc@1 67.1875 | loss 0.6962094902992249
+* Acc@1 42.96875 | loss 1.2578175067901611
+* Acc@1 59.375 | loss 0.9376260042190552
+* Acc@1 75.0 | loss 0.38158655166625977
+* Acc@1 67.96875 | loss 0.6985087394714355
+* Acc@1 37.5 | loss 1.2269597053527832
+* Acc@1 30.46875 | loss 2.039865732192993
+* Acc@1 25.78125 | loss 1.6955692768096924
+* Acc@1 36.71875 | loss 1.4007322788238525
+* Acc@1 24.21875 | loss 1.5717720985412598
+* Acc@1 27.34375 | loss 1.5954954624176025
+* Acc@1 43.75 | loss 1.6041364669799805
+* Acc@1 98.4375 | loss 0.17408707737922668
+* Acc@1 89.84375 | loss 0.24556876718997955
+* Acc@1 93.75 | loss 0.2844109833240509
+* Acc@1 98.4375 | loss 0.16443116962909698
+* Acc@1 100.0 | loss 0.015620105899870396
+* Acc@1 100.0 | loss 0.012722538784146309
+* Acc@1 100.0 | loss 0.06543642282485962
+* Acc@1 93.75 | loss 0.19411315023899078
+* Acc@1 62.5 | loss 0.6389575600624084
+* Acc@1 88.28125 | loss 0.2893703877925873
+* Acc@1 99.21875 | loss 0.08394856750965118
+* Acc@1 98.4375 | loss 0.21962080895900726
+* Acc@1 71.875 | loss 0.4500846564769745
+* Acc@1 68.75 | loss 0.6537536978721619
+* Acc@1 76.5625 | loss 0.36116287112236023
+* Acc@1 91.40625 | loss 0.21859481930732727
+* Acc@1 29.6875 | loss 1.1398175954818726
+* Acc@1 71.09375 | loss 0.7217885255813599
+* Acc@1 71.09375 | loss 0.5530378222465515
+* Acc@1 72.65625 | loss 0.4784197509288788
+* Acc@1 90.625 | loss 0.26233598589897156
+* Acc@1 87.5 | loss 0.326092004776001
+* Acc@1 85.15625 | loss 0.3273899555206299
+* Acc@1 86.71875 | loss 0.3242408335208893
+* Acc@1 89.84375 | loss 0.27029144763946533
+* Acc@1 92.96875 | loss 0.2547089755535126
+* Acc@1 78.90625 | loss 0.4475569725036621
+* Acc@1 91.40625 | loss 0.23376193642616272
+* Acc@1 83.59375 | loss 0.3781636953353882
+* Acc@1 89.0625 | loss 0.32284626364707947
+* Acc@1 90.625 | loss 0.30348992347717285
+* Acc@1 86.71875 | loss 0.3926464915275574
+* Acc@1 98.4375 | loss 0.1257886439561844
+* Acc@1 88.28125 | loss 0.32961177825927734
+* Acc@1 93.75 | loss 0.1640084832906723
+* Acc@1 100.0 | loss 0.0715366080403328
+* Acc@1 92.1875 | loss 0.2075653225183487
+* Acc@1 95.3125 | loss 0.17212392389774323
+* Acc@1 94.53125 | loss 0.19812771677970886
+* Acc@1 90.625 | loss 0.20764729380607605
+* Acc@1 79.6875 | loss 0.40611109137535095
+* Acc@1 98.4375 | loss 0.1375858634710312
+* Acc@1 99.21875 | loss 0.2071683406829834
+* Acc@1 100.0 | loss 0.10274986922740936
+* Acc@1 92.96875 | loss 0.16898909211158752
+* Acc@1 95.3125 | loss 0.2510380744934082
+* Acc@1 94.53125 | loss 0.18787166476249695
+* Acc@1 87.5 | loss 0.26837122440338135
+* Acc@1 96.09375 | loss 0.16210894286632538
+* Acc@1 97.65625 | loss 0.10255603492259979
+* Acc@1 100.0 | loss 0.16387127339839935
+* Acc@1 96.09375 | loss 0.19848975539207458
+* Acc@1 57.03125 | loss 0.6686270236968994
+* Acc@1 83.59375 | loss 0.28351691365242004
+* Acc@1 78.90625 | loss 0.4414834976196289
+* Acc@1 100.0 | loss 0.01336213480681181
+* Acc@1 100.0 | loss 0.0203084833920002
+* Acc@1 64.84375 | loss 1.3180981874465942
+* Acc@1 11.71875 | loss 2.6840016841888428
+* Acc@1 16.40625 | loss 2.4028992652893066
+* Acc@1 25.0 | loss 1.839035987854004
+* Acc@1 0.78125 | loss 2.74381160736084
+* Acc@1 20.3125 | loss 2.078704833984375
+* Acc@1 21.09375 | loss 1.490235686302185
+* Acc@1 86.71875 | loss 0.3545701205730438
+* Acc@1 100.0 | loss 0.037035733461380005
+* Acc@1 99.21875 | loss 0.07990064471960068
+* Acc@1 78.125 | loss 0.459840327501297
+* Acc@1 93.75 | loss 0.21894140541553497
+* Acc@1 99.21875 | loss 0.08432396501302719
+* Acc@1 99.21875 | loss 0.05031461641192436
+* Acc@1 100.0 | loss 0.02292434126138687
+* Acc@1 100.0 | loss 0.04754433408379555
+* Acc@1 100.0 | loss 0.046028658747673035
+* Acc@1 100.0 | loss 0.01258298009634018
+* Acc@1 100.0 | loss 0.01551650371402502
+* Acc@1 100.0 | loss 0.030175216495990753
+* Acc@1 100.0 | loss 0.0302057396620512
+* Acc@1 100.0 | loss 0.016925295814871788
+* Acc@1 100.0 | loss 0.031894832849502563
+* Acc@1 100.0 | loss 0.013719680719077587
+* Acc@1 97.65625 | loss 0.05876677483320236
+* Acc@1 100.0 | loss 0.033339984714984894
+* Acc@1 100.0 | loss 0.03821711614727974
+* Acc@1 100.0 | loss 0.03779062628746033
+* Acc@1 100.0 | loss 0.037129972130060196
+* Acc@1 98.4375 | loss 0.10781300812959671
+* Acc@1 95.3125 | loss 0.17241863906383514
+* Acc@1 94.53125 | loss 0.12709762156009674
+* Acc@1 100.0 | loss 0.03258305788040161
+* Acc@1 96.875 | loss 0.15731194615364075
+* Acc@1 71.875 | loss 0.5479324460029602
+* Acc@1 98.4375 | loss 0.07331740856170654
+* Acc@1 100.0 | loss 0.037260882556438446
+* Acc@1 98.4375 | loss 0.05168300122022629
+* Acc@1 100.0 | loss 0.03262418136000633
+* Acc@1 100.0 | loss 0.03085304982960224
+* Acc@1 100.0 | loss 0.035242848098278046
+* Acc@1 100.0 | loss 0.03361256420612335
+* Acc@1 98.4375 | loss 0.08891818672418594
+* Acc@1 100.0 | loss 0.06849751621484756
+* Acc@1 99.21875 | loss 0.07307655364274979
+* Acc@1 95.3125 | loss 0.14569631218910217
+* Acc@1 99.21875 | loss 0.07499158382415771
+* Acc@1 100.0 | loss 0.044377271085977554
+* Acc@1 100.0 | loss 0.0703834742307663
+* Acc@1 98.4375 | loss 0.07700788974761963
+* Acc@1 86.71875 | loss 0.31646549701690674
+* Acc@1 99.21875 | loss 0.12904861569404602
+* Acc@1 100.0 | loss 0.052453506737947464
+* Acc@1 92.96875 | loss 0.26740801334381104
+* Acc@1 100.0 | loss 0.024608787149190903
+* Acc@1 100.0 | loss 0.026129208505153656
+* Acc@1 99.21875 | loss 0.08621326833963394
+* Acc@1 100.0 | loss 0.036946337670087814
+* Acc@1 100.0 | loss 0.03921964392066002
+* Acc@1 100.0 | loss 0.01743324100971222
+* Acc@1 100.0 | loss 0.034598637372255325
+* Acc@1 100.0 | loss 0.02360851876437664
+* Acc@1 100.0 | loss 0.0018375400686636567
+* Acc@1 100.0 | loss 0.0028956683818250895
+* Acc@1 100.0 | loss 0.005721516907215118
+* Acc@1 100.0 | loss 0.0044168224558234215
+* Acc@1 100.0 | loss 0.002638626843690872
+* Acc@1 100.0 | loss 0.003780812257900834
+* Acc@1 100.0 | loss 0.00437293341383338
+* Acc@1 100.0 | loss 0.002750322688370943
+* Acc@1 100.0 | loss 0.0022499978076666594
+* Acc@1 100.0 | loss 0.0012775958748534322
+* Acc@1 100.0 | loss 0.0014114512596279383
+* Acc@1 100.0 | loss 0.002505128737539053
+* Acc@1 100.0 | loss 0.0015597868477925658
+* Acc@1 100.0 | loss 0.005783415399491787
+* Acc@1 100.0 | loss 0.0018407353200018406
+* Acc@1 100.0 | loss 0.0023336349986493587
+* Acc@1 100.0 | loss 0.00253837532363832
+* Acc@1 100.0 | loss 0.0011808379786089063
+* Acc@1 100.0 | loss 0.016154203563928604
+* Acc@1 46.875 | loss 0.8525341153144836
+* Acc@1 64.0625 | loss 0.7297773957252502
+* Acc@1 53.125 | loss 0.7860927581787109
+* Acc@1 34.375 | loss 1.1105870008468628
+* Acc@1 66.40625 | loss 0.6132248044013977
+* Acc@1 56.25 | loss 0.8238868117332458
+* Acc@1 46.09375 | loss 0.9130867719650269
+* Acc@1 43.75 | loss 1.1392797231674194
+* Acc@1 55.46875 | loss 0.9295708537101746
+* Acc@1 56.25 | loss 0.8157159090042114
+* Acc@1 52.34375 | loss 0.91972416639328
+* Acc@1 42.1875 | loss 1.1455882787704468
+* Acc@1 35.9375 | loss 1.2185784578323364
+* Acc@1 41.40625 | loss 1.1117216348648071
+* Acc@1 35.9375 | loss 1.1083908081054688
+* Acc@1 71.09375 | loss 0.5353280901908875
+* Acc@1 89.0625 | loss 0.36065393686294556
+* Acc@1 99.21875 | loss 0.11908691376447678
+* Acc@1 69.53125 | loss 0.6299543976783752
+* Acc@1 100.0 | loss 0.06361601501703262
+* Acc@1 89.84375 | loss 0.23384565114974976
+* Acc@1 75.0 | loss 0.4399808645248413
+* Acc@1 96.875 | loss 0.09534316509962082
+* Acc@1 92.96875 | loss 0.1641463041305542
+* Acc@1 92.1875 | loss 0.24885988235473633
+* Acc@1 91.40625 | loss 0.22037139534950256
+* Acc@1 97.65625 | loss 0.07219710201025009
+* Acc@1 100.0 | loss 0.09998676925897598
+* Acc@1 96.09375 | loss 0.1850847750902176
+* Acc@1 93.75 | loss 0.13718053698539734
+* Acc@1 100.0 | loss 0.03478211909532547
+* Acc@1 97.65625 | loss 0.13691885769367218
+* Acc@1 95.3125 | loss 0.14159125089645386
+* Acc@1 90.625 | loss 0.2349347025156021
+* Acc@1 100.0 | loss 0.05035983398556709
+* Acc@1 11.71875 | loss 2.522671937942505
+* Acc@1 89.0625 | loss 0.21329918503761292
+* Acc@1 98.4375 | loss 0.06543934345245361
+* Acc@1 100.0 | loss 0.03446954861283302
+* Acc@1 96.09375 | loss 0.16578225791454315
+* Acc@1 100.0 | loss 0.058086175471544266
+* Acc@1 67.1875 | loss 0.60750412940979
+* Acc@1 73.4375 | loss 0.7414525151252747
+* Acc@1 94.53125 | loss 0.14359836280345917
+* Acc@1 100.0 | loss 0.0293854009360075
+* Acc@1 100.0 | loss 0.05799751728773117
+* Acc@1 100.0 | loss 0.02611643262207508
+* Acc@1 99.21875 | loss 0.050891488790512085
+* Acc@1 100.0 | loss 0.022967074066400528
+* Acc@1 91.40625 | loss 0.16185040771961212
+* Acc@1 100.0 | loss 0.058042388409376144
+* Acc@1 100.0 | loss 0.010564535856246948
+* Acc@1 100.0 | loss 0.0408649779856205
+* Acc@1 54.6875 | loss 1.028655767440796
+* Acc@1 45.3125 | loss 1.070690393447876
+* Acc@1 100.0 | loss 0.018441248685121536
+* Acc@1 100.0 | loss 0.009759729728102684
+* Acc@1 100.0 | loss 0.019560495391488075
+* Acc@1 99.21875 | loss 0.08256473392248154
+* Acc@1 100.0 | loss 0.03451467677950859
+* Acc@1 89.0625 | loss 0.1988307386636734
+* Acc@1 99.21875 | loss 0.0646309182047844
+* Acc@1 95.3125 | loss 0.059059929102659225
+* Acc@1 100.0 | loss 0.026950998231768608
+* Acc@1 99.21875 | loss 0.107548788189888
+* Acc@1 99.21875 | loss 0.050644103437662125
+* Acc@1 97.65625 | loss 0.0785735473036766
+* Acc@1 96.875 | loss 0.13883820176124573
+* Acc@1 100.0 | loss 0.0053850035183131695
+* Acc@1 96.09375 | loss 0.13877835869789124
+* Acc@1 89.0625 | loss 0.2394583523273468
+* Acc@1 100.0 | loss 0.029551245272159576
+* Acc@1 96.09375 | loss 0.14954380691051483
+* Acc@1 87.5 | loss 0.2727464735507965
+* Acc@1 98.4375 | loss 0.04992127791047096
+* Acc@1 99.21875 | loss 0.10950139164924622
+* Acc@1 100.00000762939453 | loss 0.07251415401697159
+========== Done Evaluating Model on Test partition ==========
