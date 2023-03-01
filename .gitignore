@@ -5,6 +5,7 @@
 *.PNG
 *.gz
 */__pycache__/
+*.json
 
 */byol/
 
