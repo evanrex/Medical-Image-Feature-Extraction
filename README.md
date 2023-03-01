@@ -15,4 +15,4 @@ Permutation Testing is used to show that the increase is statistically significa
 
 # Reproducibility
 
-We use slurm to run our exoeriments, see this [sbatch file](https://github.com/evanrex/Medical-Image-Feature-Extraction/blob/main/models/baseline/train_baseline.sbatch) for reference.
+We use slurm to run our experiments, see this [sbatch file](https://github.com/evanrex/Medical-Image-Feature-Extraction/blob/main/models/baseline/train_baseline.sbatch) for reference.
