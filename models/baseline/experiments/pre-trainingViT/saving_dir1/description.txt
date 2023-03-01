@@ -1,0 +1,2 @@
+ImageNet Pretrained (with DINO) Vit-S
+https://github.com/facebookresearch/dino#pretrained-models

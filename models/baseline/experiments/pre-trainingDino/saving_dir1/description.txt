@@ -1,0 +1,2 @@
+ImageNet Pretrained (with DINO) ResNet50
+https://github.com/facebookresearch/dino#pretrained-models

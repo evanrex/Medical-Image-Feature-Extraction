@@ -1,0 +1,2 @@
+Default ImageNet Pretrained ResNet50 (available through Torchvision)
+https://pytorch.org/vision/main/models/generated/torchvision.models.resnet50.html#torchvision.models.resnet50
