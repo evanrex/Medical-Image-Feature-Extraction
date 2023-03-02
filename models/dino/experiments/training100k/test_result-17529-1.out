@@ -1,0 +1,32 @@
+running job: 1
+| distributed init (rank 0): env://
+git:
+  sha: dc404e3b09771d97b1263cc27e1a5cac0c1b4d49, status: has uncommited changes, branch: main
+
+arch: resnet50
+avgpool_patchtokens: False
+batch_size_per_gpu: 128
+checkpoint_key: teacher
+data_path: /home-mscluster/erex/research_project/datasets/Covidx-CT
+dist_url: env://
+epochs: 100
+evaluate: False
+evaluate_on_test: True
+gpu: 0
+local_rank: 0
+lr: 0.001
+n_last_blocks: 4
+num_labels: 2
+num_workers: 10
+output_dir: /home-mscluster/erex/research_project/models/dino/experiments/training100k/saving_dir1
+patch_size: 16
+pretrained_linear_weights: /home-mscluster/erex/research_project/models/dino/experiments/training100k/saving_dir1/checkpoint.pth.tar
+pretrained_weights: /home-mscluster/erex/research_project/models/dino/experiments/pre-training100k/saving_dir1/checkpoint.pth
+rank: 0
+val_freq: 1
+world_size: 1
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home-mscluster/erex/research_project/models/dino/experiments/pre-training100k/saving_dir1/checkpoint.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v'])
+Model resnet50 built.
+/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torchvision/transforms/transforms.py:332: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(

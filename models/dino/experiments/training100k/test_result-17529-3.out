@@ -1,0 +1,75 @@
+running job: 3
+| distributed init (rank 0): env://
+git:
+  sha: dc404e3b09771d97b1263cc27e1a5cac0c1b4d49, status: has uncommited changes, branch: main
+
+arch: resnet50
+avgpool_patchtokens: False
+batch_size_per_gpu: 128
+checkpoint_key: teacher
+data_path: /home-mscluster/erex/research_project/datasets/Covidx-CT
+dist_url: env://
+epochs: 100
+evaluate: False
+evaluate_on_test: True
+gpu: 0
+local_rank: 0
+lr: 0.001
+n_last_blocks: 4
+num_labels: 2
+num_workers: 10
+output_dir: /home-mscluster/erex/research_project/models/dino/experiments/training100k/saving_dir3
+patch_size: 16
+pretrained_linear_weights: /home-mscluster/erex/research_project/models/dino/experiments/training100k/saving_dir3/checkpoint.pth.tar
+pretrained_weights: /home-mscluster/erex/research_project/models/dino/experiments/pre-training100k/saving_dir3/checkpoint.pth
+rank: 0
+val_freq: 1
+world_size: 1
+Take key teacher in provided checkpoint dict
+Pretrained weights found at /home-mscluster/erex/research_project/models/dino/experiments/pre-training100k/saving_dir3/checkpoint.pth and loaded with msg: _IncompatibleKeys(missing_keys=[], unexpected_keys=['head.mlp.0.weight', 'head.mlp.0.bias', 'head.mlp.2.weight', 'head.mlp.2.bias', 'head.mlp.4.weight', 'head.mlp.4.bias', 'head.last_layer.weight_g', 'head.last_layer.weight_v'])
+Model resnet50 built.
+/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torchvision/transforms/transforms.py:332: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+============ Evaluating Model on Test partition ============
+Traceback (most recent call last):
+  File "/home-mscluster/erex/research_project/models/dino/eval_linear.py", line 369, in <module>
+    eval_linear(args)
+  File "/home-mscluster/erex/research_project/models/dino/eval_linear.py", line 92, in eval_linear
+    load_pretrained_linear_weights(linear_classifier, args.pretrained_linear_weights)   
+  File "/home-mscluster/erex/research_project/models/dino/eval_linear.py", line 336, in load_pretrained_linear_weights
+    state_dict = checkpoint['state_dict']
+KeyError: 'state_dict'
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 34527) of binary: /home-mscluster/erex/anaconda3/bin/python3
+Traceback (most recent call last):
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/runpy.py", line 197, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torch/distributed/run.py", line 765, in <module>
+    main()
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 345, in wrapper
+    return f(*args, **kwargs)
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torch/distributed/run.py", line 761, in main
+    run(args)
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torch/distributed/run.py", line 752, in run
+    elastic_launch(
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 131, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home-mscluster/erex/anaconda3/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 245, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+eval_linear.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2023-03-02_10:24:55
+  host      : mscluster27.ms.wits.ac.za
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 34527)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
